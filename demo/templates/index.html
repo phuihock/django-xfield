@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
+    <head>
+        <title>Expandable Field Demo</title>
+        <link rel="stylesheet" type="text/css" href="/static/css/index.css"/>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
+        <script type="text/javascript" src="/static/js/index.js"></script>
+    </head>
+    <body>
+        {% include 'form.html' with name="Basic Form" form=forms.0 num=0 %}
+        {% include 'form.html' with name="At Least 1" form=forms.1 num=1 %}
+        {% include 'form.html' with name="At Least 3" form=forms.2 num=2 %}
+    </body>
+</html>

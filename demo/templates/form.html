@@ -1,0 +1,32 @@
+{% load demofilters %}
+<ul class="form">
+    <li>
+        <h2>{{ name }}</h2>
+        <form action="{% url demo_echo %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="form_number" value="{{ num }}"></input>
+            <div class="field {% if has_error %}has_error{% endif %}">
+                Text Input:
+                <button type="button" name="add">+</button>
+                <button type="button" name="del">-</button>
+                <div class="wrapper">
+                    {# if this is a POST response, 'form' is a bound form (request.POST) #}
+                    {# form.<field name>.data contains a list of user inputs #}
+
+                    {{ form.non_field_errors }}
+                    {% for placeholder in form.input.data %}
+                        <span class="error">{{ form.input.errors|getitem:forloop.counter0 }}</span> {{ form.input }} 
+                    {% empty %}
+                        {# first time display #}
+                        {{ form.input }}
+                    {% endfor %}
+                </div>
+            </div>
+            <button type="submit">Echo</button>
+        </form>
+    </li>
+    <li class="echo">
+        <h2>Result</h2>
+        {{ form.cleaned_data.input }}
+    </li>
+</ul>

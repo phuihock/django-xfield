@@ -1,0 +1,22 @@
+.form {
+    clear: both;
+}
+.form li {
+    display: inline-block;
+    width: 300px;
+    border: 1px solid grey;
+    vertical-align: top;
+}
+.form li h2 {
+    margin: 0;
+}
+.form li form .error {
+    color: red;
+}
+.field span {
+    display: block;
+}
+
+.field span input {
+    display: block;
+}
