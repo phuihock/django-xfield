@@ -10,21 +10,6 @@ Enter your favorite colors:
     2.    [ purple    ] [+] [-]
     3.    [ green     ] [+] [-]
 
-HTML version:
-    <p>Enter your favorite colors:
-        <ol>
-            <li>
-                <input type="text" name="colors" value="red"></input> <a href="javascript: void(0)">[ + ]</a>&nbsp;<a href="javascript: void(0)">[ - ]</a>
-            </li>
-            <li>
-                <input type="text" name="colors" value="purple"></input> <a href="javascript: void(0)">[ + ]</a>&nbsp;<a href="javascript: void(0)">[ - ]</a>
-            </li>
-            <li>
-                <input type="text" name="colors" value="green"></input> <a href="javascript: void(0)">[ + ]</a>&nbsp;<a href="javascript: void(0)">[ - ]</a>
-            </li>
-        </ol>
-    </p>
-
 As an alternative to Django's Formset, you can choose to do the following with django-xfield:
 
 **1. forms.py**
