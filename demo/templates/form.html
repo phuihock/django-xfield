@@ -1,9 +1,9 @@
 {% load demofilters %}
-<ul class="form">
+<ul id="echoform{{ num }}" class="form">
     <li>
         <h2>{{ name }}</h2>
         <p>EchoForm{{ num }}</p>
-        <form action="{% url demo_echo %}" method="post">
+        <form action="{% url demo_echo %}#echoform{{ num }}" method="post">
             {% csrf_token %}
             <input type="hidden" name="form_number" value="{{ num }}"></input>
             <div class="field {% if has_error %}has_error{% endif %}">
