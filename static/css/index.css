@@ -17,6 +17,6 @@
     display: block;
 }
 
-.field span input {
+.field input, .field select {
     display: block;
 }
