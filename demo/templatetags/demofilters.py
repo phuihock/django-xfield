@@ -11,5 +11,5 @@ def getitem(_list, idx):
         return ''
 
 @register.filter
-def make_range(length):
+def range(length):
     return xrange(length)
