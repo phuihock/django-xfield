@@ -14,11 +14,16 @@
                     {# form.<field name>.data contains a list of user inputs #}
 
                     {{ form.non_field_errors }}
-                    {% for placeholder in form.input.data %}
+                    {% for datum in form.input.data %}
                         <span class="error">{{ form.input.errors|getitem:forloop.counter0 }}</span> {{ form.input }} 
                     {% empty %}
-                        {# first time display #}
-                        {{ form.input }}
+                        {# first time display, render 'min_values' widget(s) #}
+                        {# if min_values is 0 (default), render 1 widget #}
+                        {% for count in form.fields.input.min_values|range %}
+                            {{ form.input }}
+                        {% empty %}
+                            {{ form.input }}
+                        {% endfor %}
                     {% endfor %}
                 </div>
             </div>
