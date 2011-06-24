@@ -42,6 +42,7 @@ For a list of working examples, please visit http://projs.phuihock.com/xfield/. 
     $ pip install -r req.txt
     $ python manage.py runserver
 
+Then, go to http://127.0.0.1:8000/
 
 INSTALLATION
 ============
