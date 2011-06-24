@@ -8,7 +8,7 @@ setup(
     license='GPLv3',
     author='Chang Phui Hock',
     author_email='phuihock@gmail.com',
-    description="Handle input field that can be added/deleted any number of times by client, possibly using Javascript.",
+    description="A Django utility package to handle zero or more inputs of the same name.",
     include_package_data=True,
     zip_safe=False,
     packages=['xfield'],
