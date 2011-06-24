@@ -22,3 +22,18 @@ class EchoForm3(forms.Form):
         ('b', _('Blue')),
     )
     input = ExpandableField(fields.ChoiceField, choices=COLOR_CHOICES)
+
+class EchoForm4(EchoForm0):
+    def clean_input(self):
+        error_messages = []
+        has_error = False
+        values = self.cleaned_data['input']  # this is a list
+        for v in values:
+            if v != 'Y' and v != 'y':
+                error_messages.append('You can only answer "Y"')
+                has_error = True
+            else:
+                error_messages.append('')
+        if has_error:
+            raise forms.ValidationError(error_messages)
+        return values

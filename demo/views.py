@@ -9,7 +9,7 @@ def echo(request):
     }
 
     form_instances = []
-    form_names = ['EchoForm0', 'EchoForm1', 'EchoForm2', 'EchoForm3']
+    form_names = ['EchoForm0', 'EchoForm1', 'EchoForm2', 'EchoForm3', 'EchoForm4']
     for form_name in form_names:
         form_class = getattr(demo.forms, form_name)
         form_instances.append(form_class())
