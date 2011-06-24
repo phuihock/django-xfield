@@ -1,4 +1,4 @@
-# Django settings for django_xfield project.
+# Django settings for django-xfield project.
 import os
 PROJECT_ROOT = os.path.realpath(os.path.dirname(__file__))
 
@@ -103,7 +103,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'django_xfield.urls'
+ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
