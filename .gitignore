@@ -1,0 +1,6 @@
+*.py[co]
+bin/
+include/
+lib/
+share/
+tags
