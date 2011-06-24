@@ -57,7 +57,10 @@ def ExpandableField(base_field, min_values=0, max_values=None, **kwargs):
                         # so we got the number of required values, continue
                         values[i] = v
                     else:
-                        errors[i] = self.default_error_messages['required']
+                        try:
+                            errors[i] = self.default_error_messages['required']
+                        except KeyError:
+                            errors[i] = self.default_error_messages['invalid']
                         has_error = True
 
             if has_error:
