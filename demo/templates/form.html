@@ -2,6 +2,7 @@
 <ul class="form">
     <li>
         <h2>{{ name }}</h2>
+        <p>EchoForm{{ num }}</p>
         <form action="{% url demo_echo %}" method="post">
             {% csrf_token %}
             <input type="hidden" name="form_number" value="{{ num }}"></input>
