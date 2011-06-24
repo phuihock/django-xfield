@@ -33,10 +33,10 @@ returns a list with a minimum of 3 items/values in it.
 
 This simplify the server-side programming as well as client-side Javascript programming.
 
-For a list of working examples, please visit http://projs.phuihock.com/xfield/. Alternatively, you can also run the demo locally:
+For a list of working examples, please visit http://xfield.phuihock.com/. Alternatively, you can also run the demo locally:
 
-    $ git clone git@github.com:phuihock/django-xfield.git
-    $ virtualenv.py --distribute django-xfield
+    $ git clone git://github.com/phuihock/django-xfield.git
+    $ virtualenv --distribute django-xfield
     $ cd django-xfield
     $ source bin/activate
     $ pip install -r req.txt
