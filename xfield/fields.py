@@ -13,17 +13,17 @@ def ExpandableField(base_field, min_values=0, max_values=None, **kwargs):
             self.max_values = max_values  # WARNING: max_values is not implemented
 
             if not 'widget' in kwargs:
-                widget = ExpandableWidget(base_field.widget)
+                widget = ExpandableWidget(base_field.widget, min_values, max_values)
             else:
                 widget = kwargs.pop('widget')
-                if callable(widget):
-                    widget = widget()
-
                 # check the type of the widget. we can't do isinstance() or issubclass() without some magic because
                 # expandable field is an instance of a dynamic class
                 widget_type = type(widget)
                 if widget_type.__name__ != '_ExpandableWidget':
                     raise AttributeError("'%s' is not an instance of ExpandableWidget" % widget_type.__name__)
+
+                if callable(widget):
+                    widget = widget()
 
             if 'initial' in kwargs:
                 initial = kwargs['initial']
@@ -42,7 +42,7 @@ def ExpandableField(base_field, min_values=0, max_values=None, **kwargs):
                 if v:
                     try:
                         # If ExpandableField wraps around a FileField, the field's clean() method must be passed a second
-                        # argument; ref: django/forms/forms.py, line 282
+                        # argument; @see django/forms/forms.py, line 282
                         if isinstance(base_field, forms.FileField):
                             values[i] = super(_ExpandableField, self).clean(v, initial)
                         else:
