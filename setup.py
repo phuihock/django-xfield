@@ -1,6 +1,7 @@
 from distutils.core import setup
+import os
 
-with open('README.rst') as readme:
+with open(os.path.join(os.path.dirname(__file__), 'README.rst')) as readme:
     long_description = readme.read()
 
 setup(
