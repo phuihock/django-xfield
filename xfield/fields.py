@@ -37,8 +37,10 @@ def ExpandableField(base_field, min_values=0, max_values=None, **kwargs):
             has_error = False
             errors = ['' for i in range(len(values))]
             for i, v in enumerate(values):
-                # if no value provided for this expandable field, check if user has satisfied the number of minimum
-                # values
+                # if no value is provided for this expandable field, check if user
+                # has satisfied the minimum number of values required.
+                # if required is True and min_values is None, each submitted
+                # input must have a valid value.
                 if v:
                     try:
                         # If ExpandableField wraps around a FileField, the field's clean() method must be passed a second
@@ -53,15 +55,15 @@ def ExpandableField(base_field, min_values=0, max_values=None, **kwargs):
                     except Exception, e:
                         logging.error(e)
                 else:
-                    if i >= self.min_values:  # min_values is 1-based, i is 0-based
-                        # so we got the number of required values, continue
-                        values[i] = v
-                    else:
+                    if (self.required and self.min_values is None) or (i < self.min_values):
                         try:
                             errors[i] = self.default_error_messages['required']
                         except KeyError:
                             errors[i] = self.default_error_messages['invalid']
                         has_error = True
+                    else:
+                        # so we got the number of required values, continue
+                        values[i] = v
 
             if has_error:
                 raise ValidationError(errors)
