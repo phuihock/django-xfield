@@ -23,10 +23,6 @@ def ExpandableWidgetFactory(base_widget, min_values, max_values):
 
         def _render_generator_factory(self):
             def render_generator(name, values, attrs):
-                # delete the 'id' key from attrs if it exists because an expandable field should not have id
-                if isinstance(attrs, dict) and 'id' in attrs:
-                    del attrs['id']
-
                 values = self._pad(values)
                 for v in values:  
                     yield super(_ExpandableWidget, self).render(name, v, attrs)
@@ -35,6 +31,10 @@ def ExpandableWidgetFactory(base_widget, min_values, max_values):
             return render_generator
 
         def render(self, name, values, attrs=None):
+            # delete the 'id' key from attrs if it exists because an expandable field should not have id
+            if isinstance(attrs, dict) and 'id' in attrs:
+                del attrs['id']
+
             if not hasattr(self, '_render_generator'):
                 # values must be an iterator or a list
                 self._render_generator = self._render_generator_factory()(name, values, attrs)
